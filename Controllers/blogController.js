@@ -12,7 +12,7 @@ exports.Store = async (req, res) => {
            res.json("Blog already exists")
        } else {
            await Blog.create({
-               blog_title, blog_category, blog_author, blog_content, blog_date, blog_desc,blog_image:req.file.filename
+               blog_title, blog_category, blog_author, blog_content, blog_date, blog_desc,blog_image:req?.file?.filename
            })
            res.redirect("/viewBlog")
        }
@@ -20,7 +20,7 @@ exports.Store = async (req, res) => {
     console.log(error);
  }
 }
-0
+
 exports.trash=async(req,res)=>{
 try {
     const {id}=req.params

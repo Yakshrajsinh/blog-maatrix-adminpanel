@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const common={
     trim:true,
     type:String,
-    require:true
+    required:true
 }
 
 const blogSchema= new Schema({
