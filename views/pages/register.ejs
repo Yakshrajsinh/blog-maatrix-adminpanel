@@ -32,6 +32,7 @@
                 <div class="lds-pos"></div>
             </div>
         </div>
+
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
         <!-- ============================================================== -->
@@ -44,6 +45,13 @@
                     <div class="text-center p-t-20 p-b-20">
                         <span class="db"><img src="assets/images/logo.png" alt="logo" /></span>
                     </div>
+
+                    <% if(message){ %>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong><%= message %></strong>
+                          </div>
+                  <%  } %>
+
                     <!-- Form -->
                     <form class="form-horizontal m-t-20" action="/api/admin/register" method="post" >
                         <div class="row p-b-30">

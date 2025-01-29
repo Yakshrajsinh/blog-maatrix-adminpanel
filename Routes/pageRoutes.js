@@ -29,7 +29,7 @@ route.get("/updateBlog",async(req,res)=>{
 })
 
 route.get('/register',(req,res)=>{
-    res.render("pages/register")
+    res.render("pages/register",{message:req.flash("info")})
 })
 route.get('/login',(req,res)=>{
     res.render("pages/login")

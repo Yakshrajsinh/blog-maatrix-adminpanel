@@ -8,13 +8,17 @@ app.use(express.static('public'))
 const pageRoutes=require("./Routes/pageRoutes")
 const blogRoute=require("./Routes/blogRoutes")
 const adminRoute=require("./Routes/adminRoutes")
+const flash = require("express-flash")
+const session = require("express-session")
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use('/profile',express.static('upload'))
 
 require("./config/db").dbconnect()
-app.use(cookieParser())
+app.use(cookieParser("test2"))
+app.use(session("test"))
+app.use(flash())
 
 app.use("/",pageRoutes)
 

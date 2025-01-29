@@ -8,7 +8,8 @@ exports.register = async (req, res) => {
     const existemail = await Admin.findOne({ email }).countDocuments().exec()
     console.log('existemail: ', existemail);
     if (existemail > 0) {
-      res.json("email id already exists")
+      req.flash("info","email id already exists")
+      res.redirect('/register')
     } else {
       const hashpass = await plainToHash(password)
       await Admin.create({ username, password: hashpass, email })
