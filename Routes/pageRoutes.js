@@ -3,14 +3,14 @@ const Admin = require("../Models/adminModel")
 const Blog = require('../Models/blogModels')
 const { accessPage } = require("../utils/accesspage")
 
-route.get('/',(req,res)=>{
-    // res.render('../views/pages/index')
-    accessPage(req,res,"pages/index")
+route.get('/',accessPage,(req,res)=>{
+    res.render('../views/pages/index')
 })
 
-route.get('/addBlog',(req,res)=>{
-    // res.render('../views/pages/addBlog')
-    accessPage(req,res,"pages/addBlog")
+route.get('/addBlog',accessPage,(req,res)=>{
+    res.render('../views/pages/addBlog')
+
+    // accessPage(req,res,"pages/addBlog")
 })
 
 route.get("/viewBlog",async(req,res)=>{

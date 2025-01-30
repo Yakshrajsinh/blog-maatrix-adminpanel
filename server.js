@@ -10,6 +10,9 @@ const blogRoute=require("./Routes/blogRoutes")
 const adminRoute=require("./Routes/adminRoutes")
 const flash = require("express-flash")
 const session = require("express-session")
+const passport =require("passport")
+const passportAuth=require("./config/passport")
+passportAuth(passport)
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -18,6 +21,8 @@ app.use('/profile',express.static('upload'))
 require("./config/db").dbconnect()
 app.use(cookieParser("test2"))
 app.use(session("test"))
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash())
 
 app.use("/",pageRoutes)
